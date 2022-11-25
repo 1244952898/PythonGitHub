@@ -22,23 +22,23 @@ class MergeSort:
             self.merge(begin, mid, mid + 1, end)
 
     def merge(self, lb, le, rb, re):
-        tempList = [0] * (re - lb + 1)
-        tempIndex = 0
+        temp_list = [0] * (re - lb + 1)
+        temp_index = 0
         templ, tempr = lb, rb
         while templ <= le and tempr <= re:
             if self.nums[templ] < self.nums[tempr]:
-                tempList[tempIndex] = self.nums[templ]
+                temp_list[temp_index] = self.nums[templ]
                 templ += 1
             else:
-                tempList[tempIndex] = self.nums[tempr]
+                temp_list[temp_index] = self.nums[tempr]
                 tempr += 1
-            tempIndex += 1
+            temp_index += 1
 
         if templ <= le:
-            tempList[tempIndex:] = self.nums[templ:le + 1]
+            temp_list[temp_index:] = self.nums[templ:le + 1]
         elif tempr <= re:
-            tempList[tempIndex:] = self.nums[tempr:re + 1]
-        self.nums[lb: re + 1] = tempList[0:]
+            temp_list[temp_index:] = self.nums[tempr:re + 1]
+        self.nums[lb: re + 1] = temp_list[0:]
 
 
 if __name__ == '__main__':
