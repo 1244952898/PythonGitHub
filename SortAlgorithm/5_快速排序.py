@@ -10,8 +10,9 @@ class QuickSort:
         :return:
         """
         self.nums = num_list
-        self.quick_sort(0,len(num_list)-1)
+        self.quick_sort(0, len(num_list) - 1)
         return self.nums
+
     def quick_sort(self, begin, end):
         if begin < end:
             mid = self.partition(begin, end)
@@ -25,7 +26,7 @@ class QuickSort:
         :param end:
         :return:
         """
-        print(begin,end,self.nums)
+        print(begin, end, self.nums)
         mid = begin + (end - begin) // 2
         if self.nums[begin] > self.nums[end]:
             self.nums[begin], self.nums[end] = self.nums[end], self.nums[begin]
