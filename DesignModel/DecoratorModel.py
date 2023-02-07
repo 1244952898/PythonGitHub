@@ -6,6 +6,16 @@ def verify_permissions(func):
     return wapper
 
 
+def verify_permissions1(func):
+    def wapper(*args, **kwargs):
+        print('添加参数')
+        args = args+(3,)
+        print(args)
+        func(*args, **kwargs)
+
+    return wapper
+
+
 @verify_permissions
 def del_order(a, b):
     """
@@ -24,14 +34,15 @@ def enter_order(id):
     print('进入后台%s' % id)
 
 
+@verify_permissions1
+def printArgs(*args):
+    print(args)
+
+
 # enter_order=verify_permissions(enter_order)
 # del_order=verify_permissions(del_order)
 enter_order(1)
 del_order(1, 2)
-x = 10
-print(type(x))
-x = 'abc'
-print(type(x))
-z = -49.8e100
-print(z)
+
 print(123E2)
+printArgs(1,2)
