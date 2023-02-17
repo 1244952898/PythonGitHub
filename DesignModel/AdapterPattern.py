@@ -7,11 +7,12 @@ class Adaptee():
         print(self.__class__.__name__,'-SpecifictRequest')
 
 class Adapter(Target):
-    def __init__(self):
-        self.adaptee=Adaptee()
+    __adaptee=Adaptee()
+    # def __init__(self):
+    #     self.adaptee=Adaptee()
 
     def Request(self):
-        self.adaptee.SpecifictRequest()
+        self.__adaptee.SpecifictRequest()
 
 
 if __name__ == '__main__':
